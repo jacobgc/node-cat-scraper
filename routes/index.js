@@ -22,6 +22,17 @@ router.get('/', function(req, res, next) {
   });
 });
 
+/* GET home page. */
+router.get('/i', function(req, res, next) {
+  r.db('CC').table('images').filter(r.row('id').eq(req.query.id)).run(connection, function(err, cursor){
+    if (err) throw err;
+    cursor.toArray(function(err, result){
+      if (err) throw err;
+      res.render('i', { title: 'CATS!', image: result[0]});
+    });
+  });
+});
+
 router.get('/scrape', function(req, res, next) {
   getOffset(getOffset, function(result){
     console.log("CURRENT OFFSET: " + result);
