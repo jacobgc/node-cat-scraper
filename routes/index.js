@@ -18,12 +18,13 @@ router.get('/', function(req, res, next) {
       if (err) throw err;
       rI = Math.floor(Math.random() * result.length + 1);
       res.render('index', { title: 'CATS!', image: result[rI], amount: result.length });
-    })
+    });
   });
 });
 
 router.get('/scrape', function(req, res, next) {
   getOffset(getOffset, function(result){
+    console.log("CURRENT OFFSET: " + offset);
     request('http://api.giphy.com/v1/gifs/search?q=cute+cat&limit=100&api_key=dc6zaTOxFJmzC&offset=' + result, function(error, responce, html){
       if (error) {
         throw error;
