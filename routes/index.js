@@ -33,7 +33,7 @@ router.get('/scrape', function(req, res, next) {
         for (var i = 0; i < html.data.length; i++) {
           insertToDB(html.data[i]);
         }
-        iSearch(25);
+        iSearch(100);
         res.redirect('/');
       }
     });
