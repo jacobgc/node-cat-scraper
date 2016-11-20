@@ -36,7 +36,7 @@ router.get('/i', function(req, res, next) {
 router.get('/scrape', function(req, res, next) {
   getOffset(getOffset, function(result){
     console.log("CURRENT OFFSET: " + result);
-    request('http://api.giphy.com/v1/gifs/search?q=cute+cat&limit=100&api_key=dc6zaTOxFJmzC&offset=' + result, function(error, responce, html){
+    request('http://api.giphy.com/v1/gifs/search?q=cat&limit=100&api_key=dc6zaTOxFJmzC&offset=' + result, function(error, responce, html){
       if (error) {
         throw error;
       }else{
