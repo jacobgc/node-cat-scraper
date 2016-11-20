@@ -28,7 +28,7 @@ router.get('/i', function(req, res, next) {
     if (err) throw err;
     cursor.toArray(function(err, result){
       if (err) throw err;
-      res.render('i', { title: 'CATS!', image: result[0]});
+      res.render('i', { title: 'CATS!', image: result[0], amount: result.length});
     });
   });
 });
