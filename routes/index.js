@@ -78,7 +78,7 @@ function iSearch(i) {
           ]).run(connection);
         }else{
           r.db('CC').table('meta').filter(r.row('type').eq('searchPos')).
-            update({"data": result[0].data + 25}).run(connection, function(err, result1){
+            update({"data": result[0].data + i}).run(connection, function(err, result1){
               if (err) throw err;
             });
         }
